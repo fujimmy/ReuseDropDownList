@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'F:\我的文件\VISUAL STUDIO 2013\PROJECTS\REUSEDROPDOWNLIST\REUSEDROPDOWNLIST\APP_DATA\DATABASE.MDF.dbo.ZipCode' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="ZipCode">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="PostalCode" />
+      <PropertyRef Name="Sort" />
+      <PropertyRef Name="CitySort" />
+      <PropertyRef Name="IsEnabled" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="County" Type="nvarchar" MaxLength="50" />
+    <Property Name="PostalCode" Type="int" Nullable="false" />
+    <Property Name="Sort" Type="int" Nullable="false" />
+    <Property Name="CitySort" Type="int" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Database1ModelStoreContainer">
+    <EntitySet Name="ZipCode" EntityType="Self.ZipCode" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ZipCode].[ID] AS [ID], 
+    [ZipCode].[City] AS [City], 
+    [ZipCode].[County] AS [County], 
+    [ZipCode].[PostalCode] AS [PostalCode], 
+    [ZipCode].[Sort] AS [Sort], 
+    [ZipCode].[CitySort] AS [CitySort], 
+    [ZipCode].[IsEnabled] AS [IsEnabled]
+    FROM [dbo].[ZipCode] AS [ZipCode]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
